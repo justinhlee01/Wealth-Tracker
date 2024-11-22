@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block title %}WealthTracker Dashboard{% endblock %}
+{% block content %}
+<div class="dashboard-container">
+  <h5>Welcome, {{ user.first_name }}</h5>
+  <div class="balance-overview">
+    <h6>Balance: ${{ "{:,.2f}".format(balance) }}</h6>
+    <p>Total Income: ${{ "{:,.2f}".format(income) }}</p>
+    <p>Total Expenses: ${{ "{:,.2f}".format(expense) }}</p>
+  </div>
+
+  <h7>Add New Transaction</h7>
+  <form
+    method="POST"
+    action="{{ url_for('views.dashboard') }}"
+    class="add-transaction-form"
+    novalidate
+  >
+    <div class="form-row">
+      <input type="date" name="date" placeholder="Date (mm/dd/yyyy)" />
+      <input type="text" name="amount" placeholder="Amount" />
+    </div>
+    <div class="form-row">
+      <input type="text" name="category" placeholder="Category" />
+      <input type="text" name="description" placeholder="Description" />
+    </div>
+    <div class="form-row">
+      <select name="type">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <button type="submit" class="btn">Add Transaction</button>
+    </div>
+  </form>
+
+  <h7>Your Transactions</h7>
+  <table class="transactions-table">
+    <tr>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Category</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+    {% for transaction in transactions %}
+    <tr>
+      <td>{{ transaction.date }}</td>
+      <td>${{ transaction.amount }}</td>
+      <td>{{ transaction.category }}</td>
+      <td>{{ transaction.type }}</td>
+      <td>{{ transaction.description }}</td>
+      <td>
+        <form
+          method="POST"
+          action="{{ url_for('views.delete_transaction', transaction_id=transaction.id) }}"
+          style="display: inline"
+        >
+          <button type="submit" class="delete-btn">&times;</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="{{ url_for('views.chart') }}" class="visualize-data-btn">
+    Visualize Data
+  </a>
+</div>
+{% endblock %}

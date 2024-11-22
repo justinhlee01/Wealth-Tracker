@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{% block title %}WealthTracker{% endblock %}</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/dollarLogo.png') }}"
+    />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+      integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="/" id="navbar__logo">WealthTracker</a>
+        <div class="navbar__toggle" id="navbar__toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="navbar__menu" id="navbar__menu">
+          {% if current_user.is_authenticated %}
+          <li class="navbar__item">
+            <a href="/dashboard" class="navbar__links">Dashboard</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/logout" class="navbar__links">Logout</a>
+          </li>
+          {% else %}
+          <li class="navbar__item">
+            <a href="/login" class="navbar__links">Login</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/signup" class="navbar__links">Sign Up</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %} {% block content %}{%
+    endblock %}
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+  </body>
+</html>

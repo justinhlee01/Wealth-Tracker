@@ -1,0 +1,405 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  background: #353535;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  max-width: 1300px;
+  padding-right: 50px;
+  padding-left: 50px;
+  margin: 0 auto;
+}
+
+#navbar__logo {
+  background-color: #8fdddf;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin-left: auto;
+}
+
+.navbar__item {
+  height: 80px;
+}
+
+.navbar__links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+}
+
+.navbar__links:hover {
+  color: #8fdddf;
+  transition: all 0.3s ease;
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.navbar__toggle span {
+  height: 4px;
+  width: 25px;
+  background: #fff;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 960px) {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #353535;
+    z-index: 99;
+    transition: all 0.5s ease;
+  }
+
+  .navbar__menu.active {
+    display: flex;
+  }
+}
+
+#navbar__logo {
+  padding-left: 25px;
+}
+
+.main {
+  background-color: #f5f5f5;
+}
+
+.main__container {
+  display: grid;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-self: center;
+  margin: 0 auto;
+  height: 90vh;
+  width: 100%;
+  max-width: 1300px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.main__content h1 {
+  font-size: 4rem;
+  background-color: #333333;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.main__content p {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #666666;
+}
+
+.main__img--container {
+  text-align: center;
+}
+
+#main__img {
+  height: 150%;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .main__container {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+  }
+
+  .main__content {
+    text-align: center;
+  }
+
+  .main__content h1 {
+    font-size: 2.5rem;
+  }
+  .main__content p {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main__content h1 {
+    font-size: 2rem;
+    margin-top: 3rem;
+  }
+
+  .main__content p {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+.auth-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.auth-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 440px;
+  height: 480px;
+  padding: 30px;
+}
+
+.auth-container h3 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333333;
+}
+.input-field {
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 50px;
+  background-color: #353535;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sign-up-link {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.sign-up-link a {
+  color: #3498db;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sign-up-link a:hover {
+  text-decoration: underline;
+}
+
+.alert {
+  padding: 12px 20px;
+  margin: 15px auto;
+  max-width: 600px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-success {
+  background-color: #4caf50;
+}
+
+.alert-danger {
+  background-color: #f44336;
+}
+
+.alert .close {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.balance-overview {
+  padding: 15px;
+  text-align: center;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.form-row button {
+  width: 100%;
+  padding: 12px;
+  background-color: #8fdddf;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.dashboard-container h5 {
+  font-size: 1.8rem;
+  color: #333333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.balance-overview {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.balance-overview h6 {
+  font-size: 2rem;
+  color: #333333;
+  font-weight: bold;
+}
+
+.balance-overview p {
+  font-size: 1.2rem;
+  color: #333333;
+  margin: 5px 0;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #fafafa;
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.transactions-table th {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.transactions-table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.transactions-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #f44336;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.visualize-data-btn {
+  background-color: #8fdddf;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.charts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.chart-card {
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}

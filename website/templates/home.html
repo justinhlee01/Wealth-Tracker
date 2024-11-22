@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}WealthTracker{% endblock %} {% block
+content %}
+<div class="main">
+  <div class="main__container">
+    <div class="main__content">
+      <h1>Welcome to WealthTracker</h1>
+      <p>Simplifying Your Income and Expense Management</p>
+    </div>
+    <div class="main__image--container">
+      <img
+        src="{{ url_for('static', filename='images/finance.svg') }}"
+        alt="pic"
+        id="main__img"
+      />
+    </div>
+  </div>
+</div>
+{% endblock %}

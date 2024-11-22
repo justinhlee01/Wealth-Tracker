@@ -1,0 +1,113 @@
+{% extends "base.html" %} {% block title %}WealthTracker Visualize{% endblock
+%}{% block content %}
+
+<div class="charts-container">
+  <div class="chart-card">
+    <canvas id="income_vs_expense"></canvas>
+  </div>
+  <div class="chart-card">
+    <canvas id="side_by_side_bar_chart"></canvas>
+  </div>
+  <div class="chart-card">
+    <canvas id="wealth_over_time"></canvas>
+  </div>
+</div>
+
+{% block javascript %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  let income_vs_expense_data = JSON.parse({{ income_vs_expense | tojson }});
+
+  let categoryChart = new Chart(document.getElementById("income_vs_expense"), {
+    type: "pie",
+    data: {
+      labels: ["Income", "Expense"],
+      datasets: [
+        {
+          label: "Income Vs Expenses",
+          data: income_vs_expense_data,
+          backgroundColor: ["#8fdddf", "#999999"],
+          borderWidth: 1,
+          hoverBorderColor: "black",
+          hoverBorderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: "Income Vs Expenses",
+        },
+      },
+    },
+  });
+  let categories = JSON.parse({{ categories | tojson }});
+  let incomeData = JSON.parse({{ income_data | tojson }});
+  let expenseData = JSON.parse({{ expense_data | tojson }});
+
+  new Chart(document.getElementById("side_by_side_bar_chart"), {
+    type: "bar",
+    data: {
+      labels: categories,
+      datasets: [
+        {
+          label: "Income",
+          data: incomeData,
+          backgroundColor: "#8fdddf",
+        },
+        {
+          label: "Expense",
+          data: expenseData,
+          backgroundColor: "#999999",
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: "Income and Expenses by Category",
+        },
+      },
+      responsive: true,
+      scales: {
+        x: {
+          stacked: false,
+        },
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  let labels = JSON.parse({{ dates_label | tojson }});
+  let balanceOverTime = JSON.parse({{ over_time_balance | tojson }});
+
+  new Chart(document.getElementById("wealth_over_time"), {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Balance Over Time",
+          data: balanceOverTime,
+          fill: false,
+          borderColor: "#8fdddf",
+          lineTension: 0.1,
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: "Cumulative Balance Over Time",
+        },
+      },
+    },
+  });
+</script>
+{% endblock %} {% endblock %}

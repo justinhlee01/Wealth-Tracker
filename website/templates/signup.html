@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block title %}WealthTracker Sign Up{% endblock %}
+{% block content %}
+<body class="auth-page">
+  <div class="auth-container">
+    <h3 align="center">Sign Up</h3>
+
+    <form method="POST" novalidate>
+      <input
+        type="email"
+        class="input-field"
+        name="email"
+        placeholder="Enter email"
+      />
+      <input
+        type="text"
+        class="input-field"
+        name="firstName"
+        placeholder="Enter first name"
+      />
+      <input
+        type="password"
+        class="input-field"
+        name="password1"
+        placeholder="Enter password"
+      />
+      <input
+        type="password"
+        class="input-field"
+        name="password2"
+        placeholder="Confirm password"
+      />
+      <button type="submit" class="submit-btn">Sign Up</button>
+    </form>
+  </div>
+</body>
+{% endblock %}
