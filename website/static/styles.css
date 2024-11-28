@@ -179,6 +179,10 @@
 }
 
 @media screen and (max-width: 480px) {
+  .alert .close {
+    display: none;
+  }
+
   .main__content h1 {
     font-size: 2rem;
     margin-top: 3rem;
@@ -360,13 +364,15 @@ body {
   border-collapse: collapse;
   margin-bottom: 20px;
   background-color: #fafafa;
+  font-size: 0.9rem;
 }
 
 .transactions-table th,
 .transactions-table td {
-  padding: 12px;
+  padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  word-wrap: break-word;
 }
 
 .transactions-table th {
