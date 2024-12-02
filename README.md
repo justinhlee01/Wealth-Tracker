@@ -9,8 +9,7 @@ Wealth-Tracker allows you to log your income and expenses under different catego
 - **User Authentication**: Secure sign-up, login, and logout functionality.
 - **Income and Expense Logging**: Easily add and categorize your income and expenses.
 - **Financial Visualizations**: Gain insights into your finances through interactive charts and graphs.
-- **Monthly Summaries**: View monthly summaries of your financial data.
-- **Responsive Design**: Works seamlessly on both mobile and desktop devices.
+- **Responsive Design**: Works on both mobile and desktop devices.
 
 ## Features
 
