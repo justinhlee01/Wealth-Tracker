@@ -1,62 +1,33 @@
 # Wealth-Tracker
 
-A web app to track income, expenses, and visualize financial trends. Built with Flask, SQLite, and Chart.js. Features include transaction logging, income vs expense pie chart, and a detailed financial dashboard.
+Wealth-Tracker is a web application designed to help users track their income and expenses, visualize financial trends, and maintain a detailed financial dashboard. Built with Flask, SQLite, and Chart.js, this app provides an intuitive interface for managing your personal finances.
 
-## Installation
+## About
 
-To set up this project locally, follow these steps:
+Wealth-Tracker allows you to log your income and expenses under different categories, view detailed financial summaries, and visualize your financial data with pie charts and bar graphs. This app aims to simplify financial tracking for individuals by providing a clean, user-friendly interface and robust features, including:
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/justinhlee01/Wealth-Tracker.git
-
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-    cd Wealth-Tracker
-
-   ```
-
-3. Create a virtual environment:
-
-   ```bash
-    python -m venv venv
-
-   ```
-
-4. Install dependencies:
-
-   ```bash
-    pip install -r requirements.txt
-
-   ```
-
-5. Set up environment variables: <br>
-   Create a .env file and add your configuration variables
-
-6. Run the development server:
-   ```bash
-    python run.py
-   ```
+- **User Authentication**: Secure sign-up, login, and logout functionality.
+- **Income and Expense Logging**: Easily add and categorize your income and expenses.
+- **Financial Visualizations**: Gain insights into your finances through interactive charts and graphs.
+- **Monthly Summaries**: View monthly summaries of your financial data.
+- **Responsive Design**: Works seamlessly on both mobile and desktop devices.
 
 ## Features
 
-User authentication (signup, login, logout) <br>
-Income and expense loggingn <br>
-Budget visualization with charts <br>
-Responsive design for mobile and desktop
+- User authentication (signup, login, logout)
+- Income and expense logging
+- Budget visualization with charts
+- Monthly financial summaries
+- Responsive design for mobile and desktop
 
 ## Technologies Used
 
-Backend: Flask <br>
-Frontend: HTML, CSS, JavaScript <br>
-Database: SQLite <br>
-Charting: Chart.js <br>
-Authentication: Flask-Login <br>
-Version Control: Git, GitHub <br>
+- **Backend**: Flask
+- **Frontend**: HTML, CSS, JavaScript
+- **Database**: SQLite (or PostgreSQL, depending on your choice)
+- **Charting**: Chart.js
+- **Authentication**: Flask-Login
+- **Version Control**: Git, GitHub
 
 ## Usage
 
